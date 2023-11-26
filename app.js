@@ -6,9 +6,6 @@ app.listen(port, ()=>{
     console.log(`app listen to the port ${port}`)
 })
 
-app.get('/check-build', (req, res)=>{
-    res.send("page loaded hmmm successfully check check check!!!!!")
-})
 
 app.get('/check', (req, res)=>{
     res.send("I am successfull TARA MAA")
