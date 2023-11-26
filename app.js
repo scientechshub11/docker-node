@@ -7,6 +7,10 @@ app.listen(port, ()=>{
 })
 
 
+app.get('/check-build', (req, res)=>{
+    res.send("I am successfull TARA MAA")
+})
+
 app.get('/check', (req, res)=>{
     res.send("I am successfull TARA MAA")
 })
