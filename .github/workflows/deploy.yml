@@ -28,5 +28,3 @@ jobs:
       - name: Docker Push
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/docker-node
 
-      - name: Build the Docker Container REBUILD
-        run: docker run --name docker-node -p 81:3000 -d ${{ secrets.DOCKERHUB_USERNAME }}/docker-node
