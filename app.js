@@ -10,6 +10,9 @@ app.listen(port, ()=>{
 app.get('/checkTest', (req, res)=>{
     res.send("I am successfull TARA MAA")
 })
+app.get('/checkTest1', (req, res)=>{
+    res.send("I am successfull TARA MAA")
+})
 
 app.get('/', (req, res)=>{
     res.send("page loaded hmmm successfully check check!!!!!")
