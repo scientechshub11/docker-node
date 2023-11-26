@@ -1,26 +1,20 @@
 name: Build and Push Docker image to Docker Hub
-
 on: 
   push:
-    branches: ['master']
-
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
 jobs:
   build: 
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       
-      - name: Login to Docker Hub
-        uses: docker/login-action@dckr_pat_TDI5u87RLRyROevHnnn1b69jVYo
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-    
-      - name: Build and push Docker image
-        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/docker-node
-      - name: Build and pull Docker image
-        run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/docker-node:latest
-      - name: Docker Push
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/docker-node:latest
+      - name: Scripts
+        run: |
+          docker build -t app
+          docker login -u scientechshub11 -p dckr_pat_TDI5u87RLRyROevHnnn1b69jVYo
+          docker tag app scientechshub11/docker-node
+          docker push scientechshub11/docker-node
+          
