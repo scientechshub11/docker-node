@@ -11,16 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - name: Log in to Docker Hub
-        uses: docker/login-action@dckr_pat_TDI5u87RLRyROevHnnn1b69jVYo
-        with:
-          username: scientechshub11
-          password: dckr_pat_TDI5u87RLRyROevHnnn1b69jVYo
-
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag scientechshub11/docker-node
-
-      - name: Docker Push
-        run: docker push scientechshub11/docker-node
+        run: |
+          docker build -t scientechshub11/docker-node .
+          docker login -u scientechshub11 -p dckr_pat_TDI5u87RLRyROevHnnn1b69jVYo
+          docker tag scientechshub11/docker-node
+          docker push scientechshub11/docker-node
