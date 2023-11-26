@@ -1,8 +1,7 @@
 FROM node:20-alpine
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm i
 COPY . .
+RUN npm install
 EXPOSE 3000
-RUN npm run build
 CMD [ "node", "app.js" ]
