@@ -24,6 +24,3 @@ jobs:
 
       - name: Docker Push
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/docker-node
-
-      - name: Docker run
-        run: docker run --name docker-node -p 3000:3000 -d scientechshub11/docker-node
