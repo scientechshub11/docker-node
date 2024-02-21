@@ -67,3 +67,8 @@ app.get('/comment', (req, res)=>{
       ]
     res.json(comment)
 })
+
+app.get('/taramaa', (req, res)=>{
+    let data = "Iloveyou"
+    res.json(data)
+})
